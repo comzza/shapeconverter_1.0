@@ -1,0 +1,2266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>772</width>
+    <height>883</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>3D Converter for 2D Shape</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>771</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="cursor" stdset="0">
+     <cursorShape>WaitCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>100</y>
+      <width>771</width>
+      <height>671</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>3</number>
+    </property>
+    <widget class="QWidget" name="tab_1">
+     <attribute name="title">
+      <string>평균심도방식        </string>
+     </attribute>
+     <widget class="QLabel" name="lblCircleSeg">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>360</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>원형 단면 분할 갯수 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblFacilName">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>15</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>나눔고딕</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <fontweight>DemiBold</fontweight>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>시설물 종류</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStop">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>550</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>변환 중지</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbExportFileFormat">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>454</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>내보낼 파일 형식을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>156</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbResamplingIntervals">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>387</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>선형 중간점 간격을 설정하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnApply">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>125</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>적용</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSaveFolder">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>87</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>저장 폴더 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSize">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>283</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>단면크기(size) :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbSizeSelect">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>275</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>구경 크기 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSaveFolderBrowse">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>82</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>저장폴더 바꾸기</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="Line" name="line_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>310</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>247</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>평균심도(z)  :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblExportFile">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>461</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>내보낼 파일 포맷 :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStart">
+      <property name="geometry">
+       <rect>
+        <x>173</x>
+        <y>550</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>3D 변환 시작</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBrowse">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>45</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>파일찾기...</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>329</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&gt;&gt;&gt; 3D 변환 옵션 설정</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbDepthSelect">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>240</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>깊이값 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>249</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbFacilType">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관로종류 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>283</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : mm)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관로 Shape 파일 :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbCircleSeg">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>353</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>원형 단면 분할 갯수를 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledSaveFolder">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>82</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>저장 폴더를 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledShapeFile">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>45</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>변환할 shape 파일을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>176</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&gt;&gt;&gt; 3D 변환용 속성필드 설정</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblResampling">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>394</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>중간점 간격 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>394</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>610</y>
+        <width>721</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+    border: 1px solid gray;
+    border-radius: 2px;
+    text-align: center;
+    color: black;
+	border-color: rgb(50, 199, 149);
+}
+
+QProgressBar::chunk {
+    background-color: #05B8CC;
+    width: 20px;
+    margin: 0.5px;
+}</string>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblConnectTol">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>427</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>끝점연결 허용오차 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>428</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledConnectTolerance">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>419</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>끝점 연결 시 허용오차값을 입력하세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblProgressMsg">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>590</y>
+        <width>601</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>변환작업 대기 중 ...</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbFeatureID">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>205</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관로(Feature) 식별 항목</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblFearueID">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>212</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관로 ID :</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkResampleOption_1">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>500</y>
+        <width>571</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Line Feature 내 정점과 삽입된 중간점을 모두 리샘플링(중간점만 적용할 경우는 언체크)</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>심도포인트결합방식</string>
+     </attribute>
+     <widget class="QPushButton" name="btnSaveFolderBrowse_2">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>118</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>저장폴더 바꾸기</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbExportFileFormat_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>507</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>내보낼 파일 형식을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblCircleSeg_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>442</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>원형 단면 분할 갯수 :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStart_2">
+      <property name="geometry">
+       <rect>
+        <x>173</x>
+        <y>550</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>3D 변환 시작</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblProgressMsg_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>590</y>
+        <width>601</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>변환작업 대기 중 ...</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSize_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>286</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>단면크기(size) :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관로 Shape 파일 :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBrowse_2">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>45</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>파일찾기...</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblExportFile_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>514</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>내보낼 파일 포맷 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblConnectTol_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>477</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>끝점연결 허용오차 :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnApply_2">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>162</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>적용</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledShapeFile_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>45</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>변환할 관로 shape 파일을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>254</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>198</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>251</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>평균심도(z)  :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>410</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&gt;&gt;&gt; 3D 변환 옵션 설정</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbCircleSeg_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>435</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>원형 단면 분할 갯수를 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>288</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : mm)</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStop_2">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>550</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>변환 중지</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledConnectTolerance_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>470</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>끝점 연결 시 허용오차값을 입력하세요</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>610</y>
+        <width>721</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+    border: 1px solid gray;
+    border-radius: 2px;
+    text-align: center;
+    color: black;
+	border-color: rgb(50, 199, 149);
+}
+
+QProgressBar::chunk {
+    background-color: #05B8CC;
+    width: 20px;
+    margin: 0.5px;
+}</string>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>219</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&gt;&gt;&gt; 3D 변환용 속성필드 설정</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSaveFolder_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>123</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>저장 폴더 :</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledSaveFolder_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>118</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>저장 폴더를 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbSizeSelect_2">
+      <property name="geometry">
+       <rect>
+        <x>114</x>
+        <y>279</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>구경 크기 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbAvrgDepthSelect">
+      <property name="geometry">
+       <rect>
+        <x>114</x>
+        <y>244</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>깊이값 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>479</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>386</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>370</x>
+        <y>323</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>320</y>
+        <width>91</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>포인트심도(z)  :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbPointDepthSelect">
+      <property name="geometry">
+       <rect>
+        <x>114</x>
+        <y>313</y>
+        <width>251</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>깊이값 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledPointShapeFile">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>82</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>변환할 심도 shape 파일을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_10">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>87</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>심도 Shape 파일 :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBrowsePointshp">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>82</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>파일찾기...</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblFeatureID_2">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>251</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관로 ID :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbFeatureID_2">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>244</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관로ID 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbFacilType_2">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>11</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관로종류 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblFacilName_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>16</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>나눔고딕</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <fontweight>DemiBold</fontweight>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>시설물 종류</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnGDFExport">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>350</y>
+        <width>211</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>GeoDataFrame Export</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>시종점심도(하수)    </string>
+     </attribute>
+     <widget class="QComboBox" name="cmbExportFileFormat_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>476</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>내보낼 파일 형식을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnBrowse_3">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>45</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>파일찾기...</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>206</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>시점심도(z)  :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblFacilName_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>17</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>나눔고딕</family>
+        <pointsize>9</pointsize>
+        <italic>false</italic>
+        <fontweight>DemiBold</fontweight>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>시설물 종류</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbSizeSelect_3">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>234</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>원형관 구경 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>450</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbResamplingIntervals_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>409</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>선형 중간점 간격을 설정하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>151</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_8">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>352</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&gt;&gt;&gt; 3D 변환 옵션 설정</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbStartDepthSelect">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>199</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>시점심도 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>208</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblCircleSeg_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>383</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>원형 단면 분할 갯수 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblResampling_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>417</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>중간점 간격 :</string>
+      </property>
+     </widget>
+     <widget class="Line" name="line_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>333</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_9">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>171</y>
+        <width>201</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 700 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>&gt;&gt;&gt; 3D 변환용 속성필드 설정</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledShapeFile_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>45</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>변환할 shape 파일을 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSaveFolderBrowse_3">
+      <property name="geometry">
+       <rect>
+        <x>620</x>
+        <y>82</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;</string>
+      </property>
+      <property name="text">
+       <string>저장폴더 바꾸기</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStop_3">
+      <property name="geometry">
+       <rect>
+        <x>413</x>
+        <y>550</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>변환 중지</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblProgressMsg_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>590</y>
+        <width>601</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>변환작업 대기 중 ...</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledConnectTolerance_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>441</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>끝점 연결 시 허용오차값을 입력하세요</string>
+      </property>
+     </widget>
+     <widget class="QProgressBar" name="progressBar_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>610</y>
+        <width>721</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QProgressBar {
+    border: 1px solid gray;
+    border-radius: 2px;
+    text-align: center;
+    color: black;
+	border-color: rgb(50, 199, 149);
+}
+
+QProgressBar::chunk {
+    background-color: #05B8CC;
+    width: 20px;
+    margin: 0.5px;
+}</string>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSaveFolder_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>87</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>저장 폴더 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>436</x>
+        <y>416</y>
+        <width>211</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbCircleSeg_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>375</y>
+        <width>281</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>원형 단면 분할 갯수를 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="ledSaveFolder_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>82</y>
+        <width>461</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;맑은 고딕&quot;;</string>
+      </property>
+      <property name="placeholderText">
+       <string>저장 폴더를 선택하여 주세요</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblSize_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>241</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>구경(size) :</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnStart_3">
+      <property name="geometry">
+       <rect>
+        <x>173</x>
+        <y>550</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>3D 변환 시작</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnApply_3">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>120</y>
+        <width>171</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>적용</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblExportFile_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>483</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>내보낼 파일 포맷 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblConnectTol_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>450</y>
+        <width>116</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>끝점연결 허용오차 :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbFacilType_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>10</y>
+        <width>151</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관로종류 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblShapeFile_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관로 Shape 파일 :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbEndDepthSelect">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>199</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>종점심도 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth_5">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>206</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>종점심도(z)  :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>276</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>가로길이 :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbHightSelect">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>269</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>박스형관 세로길이 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbWidthSelect">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>269</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>박스형관 가로길이 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblStartDepth_7">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>276</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>세로길이 :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>690</x>
+        <y>278</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>(단위 : m)</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblPipeRow">
+      <property name="geometry">
+       <rect>
+        <x>360</x>
+        <y>241</y>
+        <width>71</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관 열수 :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbPipeRow">
+      <property name="geometry">
+       <rect>
+        <x>450</x>
+        <y>234</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관열갯수 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmbFeatureID_3">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>303</y>
+        <width>231</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>관로ID 항목 선택</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="lblFeatureID_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>310</y>
+        <width>81</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 600 9pt &quot;나눔고딕&quot;;</string>
+      </property>
+      <property name="text">
+       <string>관로 ID :</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="chkResampleOption_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>520</y>
+        <width>571</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Line Feature 내 정점과 삽입된 중간점을 모두 리샘플링(중간점만 적용할 경우는 언체크)</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>간섭분석</string>
+     </attribute>
+     <widget class="QWidget" name="horizontalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>19</y>
+        <width>731</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Workspace Folder :      </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="leWorkspaceFolder">
+         <property name="placeholderText">
+          <string>gpkg 파일이 존재하는 폴더를 선택하여 주세요</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btWorkFolderBrowse">
+         <property name="text">
+          <string>     Browse ...     </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>160</y>
+        <width>291</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>Workspace GeoPackage 파일</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="lwGpkgFileList"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>250</y>
+        <width>111</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QPushButton" name="btAllFilesAdd">
+         <property name="text">
+          <string>전체 추가</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btSelectedFilesAdd">
+         <property name="text">
+          <string>추가 ▷▷ </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btRemoveSelected">
+         <property name="text">
+          <string>◁◁ 제외</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btRemoveAll">
+         <property name="text">
+          <string>전체 제외</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="btGdfListOpen">
+      <property name="geometry">
+       <rect>
+        <x>290</x>
+        <y>100</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>작업폴더 gpkg 불러오기</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>160</y>
+        <width>291</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>간섭분석 대상 파일</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="lwAnalysisFileList"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="horizontalLayoutWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>50</y>
+        <width>731</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>Source Folder :           </string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLineEdit" name="leSourceFolder">
+         <property name="placeholderText">
+          <string>원본 Shape/DBF 파일이 있는 폴더를 선택하여 주세요</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btSourceFolderBrowse">
+         <property name="text">
+          <string>     Browse ...     </string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QPushButton" name="btAnalysisWorkStart">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>520</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>간섭분석 작업 시작</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btAnalysisWorkStop">
+      <property name="geometry">
+       <rect>
+        <x>420</x>
+        <y>520</y>
+        <width>201</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>간섭분석 작업 취소</string>
+      </property>
+     </widget>
+     <widget class="QWidget" name="verticalLayoutWidget_4">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>560</y>
+        <width>731</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <item>
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>분석 결과</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPlainTextEdit" name="teAnalysisResults"/>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="btnClose">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>780</y>
+      <width>171</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: #f0f0f0;
+border-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>닫기</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>772</width>
+     <height>33</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <addaction name="actionWorkspace"/>
+    <addaction name="actionDBF_Schema"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <addaction name="menuFile"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionWorkspace">
+   <property name="text">
+    <string>Workspace</string>
+   </property>
+  </action>
+  <action name="actionDBF_Schema">
+   <property name="text">
+    <string>Feature Attribute Field ..</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
