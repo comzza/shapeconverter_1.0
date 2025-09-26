@@ -40,8 +40,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         # 그래픽스 뷰 위젯에 이미지 파일 로딩 
         scene = QGraphicsScene(self)
-        #pixmap = QtGui.QPixmap("C:\Dev_Python\Workspace\shapeconverter\shp_convert_image.png")  # 이미지
-        pixmap = QtGui.QPixmap("C:\Workspace\shapeconvert\shp_convert_image.png")  # 이미지
+        pixmap = QtGui.QPixmap("C:\Dev_Python\Workspace\shapeconverter\shp_convert_image.png")  # 이미지
+        #pixmap = QtGui.QPixmap("C:\Workspace\shapeconvert\shp_convert_image.png")  # 이미지
         if not pixmap.isNull():
             scene.addPixmap(pixmap)
         else:
